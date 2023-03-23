@@ -1,0 +1,209 @@
+.loginPageContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.formDivContainer {
+
+    width: 50%;
+    height: calc(100% - 3rem);
+    margin: 0%;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+
+}
+
+.wrapper {
+    position: relative;
+    top: 3rem;
+    width: calc(100% - 20px);
+    border-radius: 5px;
+    height: 400px;
+    /* background-color: #7dc2b4; */
+    border-color: grey;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.picture {
+    top: 3.7rem;
+    margin: 0%;
+    padding: 0%;
+    border-left: 1px solid white;
+    border-radius: 280px 10px 10px 280px;
+    /* background-color: #7dc2b4; */
+    width: 50%;
+    height: 400px;
+    max-height: 500px;
+    position: relative;
+    background: url("../Media//bkg.jpg");
+}
+
+.LoginByEmailAndPassword input {
+    border-radius: 5px;
+    border-width: 1px;
+    width: calc(70% - 1rem);
+    font-size: large;
+    height: 2rem;
+    padding-left: 1rem;
+    border-style: none;
+    background-color: lightgray;
+
+}
+
+.spanError {
+    height: 2rem;
+    display: inline-block;
+    width: 100%;
+    line-height: 2rem;
+    vertical-align: middle;
+    font-size: medium;
+    font-weight: 500;
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(197, 49, 49);
+}
+
+#loginButton:disabled {
+    background-color: grey;
+
+}
+
+#loginButton {
+    border-radius: 5px;
+    border-width: 0px;
+    background-color: rgb(77, 90, 190);
+    font-size: medium;
+    width: 200px;
+    height: 35px;
+    color: white;
+}
+
+#passwordInput {
+    width: calc(70% - 5rem);
+
+}
+
+.showContainer {
+    border-bottom: 3px solid rgb(116, 61, 212);
+    border-radius: 3px;
+    height: 2rem;
+    width: 4rem;
+    background-color: white;
+    transition: 0.3s linear;
+    /* margin-top: -5px; */
+    vertical-align: top;
+    /* background-color: rebeccapurple; */
+    display: inline-block;
+    /* background-color: #7dc2b4; */
+}
+
+.showContainer:hover {
+    /* border: none; */
+    border-radius: 5px;
+
+    border-bottom: 3px solid #d05a4f;
+    background-color: #d05a4f;
+    transition: 0.3s linear;
+}
+
+.showContainer span {
+    vertical-align: middle;
+    display: inline-block;
+    vertical-align: bottom;
+    /* margin: auto 0; */
+    font-weight: 500;
+    height: 2rem;
+    margin: 0%;
+    padding-top: 7px;
+}
+
+.showContainer span:hover {
+    font-weight: 500;
+    color: white;
+}
+
+.loginButtonGoogle {
+    width: 200px;
+    height: 2.5rem;
+    border-radius: 140px;
+    border-style: none;
+    color: white;
+    font-size: medium;
+    background: linear-gradient(to right, #7dc2b4 0%, #c20d56 51%, #c890c4 100%);
+}
+
+.formDivContainer img {
+    vertical-align: middle;
+    width: 27px;
+    height: 26px;
+}
+
+.loginButtonGoogle:hover {
+    margin: 0%;
+    padding: 0%;
+    background-color: rgb(132, 132, 250);
+    animation: hoverLogin 0.3s forwards;
+}
+
+@keyframes hoverLogin {
+    0% {
+        background: rgb(23, 27, 52);
+        font-size: medium;
+    }
+
+    100% {
+        width: 220px;
+        height: 2.6rem;
+        font-size: large;
+        background: rgb(23, 27, 52);
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+@media(max-width:600px) {
+    .formDivContainer {
+
+        width: 100%;
+        height: calc(100% - 3rem);
+        margin: 0%;
+        padding: 10px;
+        text-align: center;
+        position: fixed;
+    }
+
+    .picture {
+        display: none;
+    }
+
+    .wrapper {
+        position: relative;
+        top: 3rem;
+        width: calc(100% - 20px);
+        border: none;
+        height: 350px;
+
+    }
+
+    .LoginByEmailAndPassword input {
+        width: 90%;
+    }
+    #passwordInput{
+        width: calc(90% - 4rem);
+    }
+    h1 {
+        font-size: xx-large;
+        margin: 1rem 0px;
+    }
+    a {
+        text-decoration: none;
+        color: rgb(65, 65, 171);
+        font-size: larger;
+        font-weight: 500;
+    }
+}

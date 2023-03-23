@@ -1,0 +1,13 @@
+.router{
+    max-width: 900px;
+    width: 100%;
+    height: calc(93% - 1rem);
+    padding: 0px;
+    position:fixed;
+    overflow-y: scroll;
+
+
+}
+.router::-webkit-scrollbar {
+    display: none;
+  }

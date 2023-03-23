@@ -1,0 +1,122 @@
+.registrationForm{
+    position: relative;   
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+}
+.container{
+    text-align: center;
+    position: relative;
+    border-radius: 7px;
+    border-color: gray;
+    border-width: 1px;
+    border-style: solid;
+    width: calc(100% - 25px);
+    top: 3rem;
+    margin: 0%;
+    padding: 0%;
+}
+.registrationForm input{
+    font-size: large;
+    padding-left: 1rem;
+    height: 2rem;
+    width: 60%;
+    border-radius: 5px;
+    border: none;
+    background-color: lightgrey;
+}
+.spanError{
+    color: #d05a4f;
+    font-size: large;
+    font-weight: 500;
+    line-height: 2rem;
+    vertical-align: middle;
+    width: 60%;
+    height: 2rem;
+    display: inline-block;
+}
+#passwordInput{
+    width: calc(60% - 4rem);
+}
+.showContainer{
+    border-bottom: 3px solid rgb(116, 61, 212);
+    border-radius: 3px;
+    height: 2rem;
+    width: 4rem;
+    background-color: white;
+    transition: 0.3s linear;
+
+    vertical-align: top;
+
+    display: inline-block;
+
+}
+
+.showContainer:hover {
+
+    border-radius: 5px;
+    border-bottom: 3px solid #d05a4f;
+    background-color: #d05a4f;
+    transition: 0.3s linear;
+}
+.showContainer span{
+
+    margin-top: 6px;
+    display: inline-block;
+    
+    font-weight: 500;
+}
+.showContainer span:hover {
+
+    color: white;
+}
+.registrationForm button{
+    width: 30%;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(77, 90, 190);
+    transition: 0.3s linear;
+    height: 2rem;
+    color: white;
+    font-weight: 500;
+    font-size: large;    
+
+}
+.registrationForm button:hover{
+    position: static;
+
+    bottom: 1rem;
+    background-color:rgb(153, 158, 194) ;
+    transition: 0.3s linear;
+    color: rgb(53, 53, 159);
+
+}
+
+@media(max-width:600px){
+    .registrationForm{
+        margin-top: 3rem;
+        text-align: center;
+        padding: 0px;
+    }
+    .container{
+        border: none;
+
+        position: fixed;
+        top: 3rem;   
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+    }
+    .registrationForm input{
+        width: 90%;
+    }
+    #passwordInput{
+        width: calc(90% - 4rem);
+    }
+    .registrationForm button{
+        width: 60%;
+        position: fixed;
+        bottom: 5rem;
+        left : calc(20%)
+    }
+}
