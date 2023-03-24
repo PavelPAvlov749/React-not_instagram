@@ -1,6 +1,5 @@
 .defaultAvatarLarge{
     grid-area: Avatar;
-
     text-align: center;
     align-items: center;
     width: 100%;
@@ -27,61 +26,31 @@
 .wrapperDiv{
     display: inline;
 }
-.defaultAvatarLarge span {
 
-    /* position:relative;
-    vertical-align: middle; */
-}
-.defaultAvatarSmall  {
-    grid-area: Avatar;
-    display: inline;
-    text-align: center;
-    align-items: center;
-    /* width: 70px; */
-    /* height: 70px; */
-    padding: 10px 0px;
-}
-.defaultAvatarSmall .circle {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    /* line-height: 122px; */
-    color: white;
-    font-size: 1rem;
-    
-    vertical-align: middle;
-    max-height: 70px;
-    max-width: 70px;
-    /* border: 1px solid rgb(39, 39, 39); */
-}
 a{
     text-decoration: none;
 }
 .avatarLarge {
-    /* padding: 10px; */
     grid-area: Avatar;
     position: relative;
-    align-items: center;
     display: inline-block;
-    width: calc(100% - 20px);
+    width: 100%;
     text-align: center;
-    padding: 10px;
-    height: calc(100% - 20px);
-
+    height: 100%;
 }
 .avatarLarge img{
-
     max-width: 120px;
     max-height: 120px;
     width: 100%;
-    height: auto;
-    
-    border-radius: 100%;
+    height: 100%;
+    object-fit:cover;
+    border-radius: 360px;
     grid-area: Avatar;
-    display: inline;
+    display: inline-block;
+    margin-top: 10px;
 }
+
+
 .avatarSmall{
     display: inline;
     vertical-align: middle;
@@ -97,4 +66,27 @@ a{
 
     grid-area: Avatar;
     display: inline;
+}
+@media(max-width:407px) {
+    .avatarLarge{
+        grid-area: Avatar;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        height: 100%;
+
+    }
+    .avatarLarge img{
+        
+        position: relative;
+        max-width: 80%;
+        max-height: 80%;
+        width: 100%;
+        height: auto;
+        object-fit:fill;
+        border-radius: 100%;
+        grid-area: Avatar;
+        display: inline-block;
+        margin-top: 10px;
+    }
 }

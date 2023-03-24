@@ -5,8 +5,6 @@
     padding: 0px;
     position:fixed;
     overflow-y: scroll;
-
-
 }
 .router::-webkit-scrollbar {
     display: none;

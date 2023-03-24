@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "../../Styles/Registration.module.css"
 import { getUserRegFormFromState } from "../../Selectors/Selectors";
 import * as yup from 'yup'
+import { createUserByEmailAndPassword } from "../../Redux/AuthReducer";
 
 
 
@@ -25,16 +26,17 @@ export const Registration: React.FC = React.memo((props) => {
             .matches(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
                 "Incorrect email format"),
         password: yup.string().typeError("Password should be a string").required("This field is reqired").min(6).max(30)
-            .matches(/^(?=.*[a-z])(?=.*[A_Z])(?=.*[0-9])(?=.*[!~@#$%^&*?])/,
+            .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!~@#$%^&*?])/,
                 "Incorect password format"),
-        repeatPassword: yup.string().required("This field is required").oneOf([yup.ref("password")]).typeError("Should be a string").min(6).max(30)
-            .matches(/^(?=.*[a-z])(?=.*[A_Z])(?=.*[0-9])(?=.*[!~@#$%^&*?])/)
+        repeatPassword: yup.string().required("This field is required").oneOf([yup.ref("password")],"Passwords dint match").typeError("Should be a string").min(6).max(30)
+            .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!~@#$%^&*?])/)
     })
     const newUserRegForm = useSelector(getUserRegFormFromState)
 
-    let [onError, setOnError] = useState({ onError: false, errorMessage: null as unknown as string })
+
 
     const setSubmit = (values: { userName: string, email: string, password: string, repeatPassword: string }) => {
+        dispatch(createUserByEmailAndPassword(values.email,values.password,values.userName))
 
     }
 
@@ -60,30 +62,34 @@ export const Registration: React.FC = React.memo((props) => {
                     {({ values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty }) => {
                         return (
                             <div className={styles.registrationForm}>
-                                <input placeholder="Name" type="text" name="userName" onChange={handleChange} onBlur={handleBlur} value={values.userName}></input>
+                                <input 
+                                autoComplete="off"
+                                placeholder="Name" type="text" name="userName" onChange={handleChange} onBlur={handleBlur} value={values.userName}></input>
                                 <br />
-                                <span className={styles.spanError}>{errors.userName}</span>
+                                <span className={styles.spanError}>{touched.userName ?  errors.userName : null}</span>
                                 <br />
 
-                                <input type="text" name="Email" onChange={handleChange} placeholder={"Email"} onBlur={handleBlur} value={values.email} />
+                                <input autoComplete="off" type="text" name="email" onChange={handleChange} placeholder={"Email"}
+                                 onBlur={handleBlur} value={values.email} />
                                 <br />
-                                <span className={styles.spanError}>{errors.email}</span>
+                                <span className={styles.spanError}>{touched.email ?  errors.email : null}</span>
                                 <br />
-                                <input id={styles.passwordInput} type={showPassword ? "text" :"password"} name="password" 
+                                <input autoComplete="off" id={styles.passwordInput} type={showPassword ? "text" :"password"} name="password" 
                                  onChange={handleChange} placeholder={"Password"} onBlur={handleBlur} value={values.password} />
                                 <div className={styles.showContainer} onClick={hidePassword}>
                                     <span>Show</span>
                                 </div>
-                                <span className={styles.spanError}>{errors.password}</span> 
+                                <span className={styles.spanError}>{touched.password ? errors.password : null}</span> 
                                 <br />
-                                <input placeholder="Repeat password" type={showPassword ? "text" : "password"} name="repeatPassword" onChange={handleChange} onBlur={handleBlur} value={values.repeatPassword}></input>
+                                <input autoComplete="off" placeholder="Repeat password" type={showPassword ? "text" : "password"} 
+                                name="repeatPassword" onChange={handleChange} onBlur={handleBlur} value={values.repeatPassword}></input>
                                 <br />
-                                <span className={styles.spanError}>{errors.repeatPassword}</span>
+                                <span className={styles.spanError}>{touched.repeatPassword ? errors.repeatPassword : null}</span>
                               
                                 <br />
                                 <button type="submit"
                                 //@ts-ignore 
-                                onClick={handleSubmit} disabled={!touched && !dirty}>Create Account</button>
+                                onClick={handleSubmit} disabled={!dirty || !isValid} className={!dirty || !isValid ? styles.disabledButton : null}>Create Account</button>
                             </div>
                         )
                     }}

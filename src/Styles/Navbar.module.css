@@ -1,7 +1,5 @@
 .navbarContainer{
-
      position: relative;
-
      text-align: center;
      vertical-align: middle;
      width: 100%;
@@ -18,7 +16,6 @@
 }
 
 ul{
-    display: inline;
     margin: 0%;
     padding: 0%;
 }
@@ -49,5 +46,14 @@ li{
         align-items: center;
         background-color: white;
         z-index: 2;
+    }
+}
+@media(max-width:378px){
+    .navigation_list img {
+        max-height: 25px;
+        max-width: 25px;
+    }
+    li{
+        padding: 5%;
     }
 }

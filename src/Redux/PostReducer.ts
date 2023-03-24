@@ -166,6 +166,7 @@ export const createNewPostThunk = (userAvatar : string,userID: string, postIMG: 
                     dispatch(app_actions.set_is_fetch_fasle())
                     dispatch(postActions.setNewPostPhoto(null))
                     dispatch(app_actions.setOnLoad(false))
+                    dispatch(getPostListByUserID(userID))
                 }
 
             } else {
@@ -175,8 +176,6 @@ export const createNewPostThunk = (userAvatar : string,userID: string, postIMG: 
         } catch (ex) {
             console.log(ex)
         }
-
-
     }
 }
 

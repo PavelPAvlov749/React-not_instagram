@@ -36,6 +36,14 @@ export const NewLogin: React.FC = React.memo(() => {
     const signInWithGoggle = () => {
         dispatch(signInWithGooglePopUp())
     }
+    const [cardPosition, setCardPosition] = useState("loginCard")
+    const revertCard = () => {
+        if (cardPosition === "loginCard") {
+            setCardPosition("regCard")
+        } else {
+            setCardPosition("loginCard")
+        }
+    }
     return (
         <section className={styles.loginPageContainer}>
             <div className={styles.picture}>
@@ -58,19 +66,21 @@ export const NewLogin: React.FC = React.memo(() => {
 
                                 <section className={styles.LoginByEmailAndPassword}>
                                     <h1>Login</h1>
-                                    <input type="text" name="email" onChange={handleChange} placeholder={"Email"} onBlur={handleBlur} value={values.email} />
+                                    <input autoComplete="off" type="text" name="email" onChange={handleChange} placeholder={"Email"} onBlur={handleBlur} value={values.email} />
                                     <br />
-                                    <span className={styles.spanError}>{errors.email}</span>
+                                    <span className={styles.spanError}>{touched.email ? errors.email : null}</span>
                                     <br />
-                                    <input id={styles.passwordInput} type={hidePassword ? "password" : "text"} name="password" onChange={handleChange} placeholder={"Password"} onBlur={handleBlur} value={values.password} />
+                                    <input autoComplete="off" id={styles.passwordInput} type={hidePassword ? "password" : "text"} name="password" onChange={handleChange} placeholder={"Password"} onBlur={handleBlur} value={values.password} />
                                     <div className={styles.showContainer} onClick={onShowPasswordHandler}>
                                         <span>Show</span>
                                     </div>
                                     <br />
-                                    <span className={styles.spanError}>{errors.password}</span>
+                                    <span className={styles.spanError}>{touched.password ? errors.password : null}</span>
                                     <button id={styles.loginButton} type="submit" disabled={!touched && !dirty}
                                         //@ts-ignore
                                         onClick={handleSubmit} >Login</button>
+                                    <br />
+                                 
                                 </section>
 
 
@@ -93,6 +103,7 @@ export const NewLogin: React.FC = React.memo(() => {
                 </div>
 
             </section>
+      
         </section>
     )
 })
