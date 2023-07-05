@@ -111,21 +111,30 @@ span {
 }
 
 .creatorInfo {
-    padding: 5px;
+    /* background-color: red;
     grid-area: User;
-   
+    display: flex;
+
+    flex-direction: row;
+    padding: 5px;
+    align-items: center; */
+    
 }
-
+.creatorInfo_nav{
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+.creatorInfo_nav span {
+    margin-left: 10px;
+    font-size: larger;
+    font-weight: 500;
+}
 .autorName {
-
-    margin-left: 1rem;
     display: inline;
-    font-size: large;
-    text-decoration: none;
-
-    text-decoration: none;
-    color: black;
-    font-weight: 400;
+    align-self: center;
+    color: rgb(28, 28, 28);
 }
 
 .autorAvatar {

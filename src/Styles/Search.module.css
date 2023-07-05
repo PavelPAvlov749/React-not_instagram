@@ -21,9 +21,16 @@
     width: 100%;
     height: calc(100% - 3rem);
 }
+.searchResults::-webkit-scrollbar {
+    display: none;
+  }
+.searchResults {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 .userMiniPage img{
     display: inline;
-
+    
 }
 .input{
     position: fixed;
@@ -39,6 +46,9 @@
     font-size: larger;
 }
 .userMiniPage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin-bottom: 1rem;
 }
 .searchWrapper input{

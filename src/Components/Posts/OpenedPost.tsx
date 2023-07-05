@@ -17,7 +17,7 @@ import { Avatar } from "../UserPage/Avatar";
 import crossIcon from "../../Media/trash_64.png"
 import comentIcon from "../../Media/comentIcon.png"
 import { Preloader } from "../Preloader/Preloader";
-import saveToTheGalery from "../../Media/bookmark.png"
+
 
 import { ComentType } from "../../Redux/Types";
 import { getComentsByPostIDThunk } from "../../Redux/ComentReducer";
@@ -69,9 +69,9 @@ export const ShowedPost: React.FC = React.memo((props) => {
         return (
             <section className={styles.postWrapper}>
                 <div className={styles.creatorInfo}>
-                    <NavLink to={`/profile/id:=${actualPost.creatorID}`} >
+                    <NavLink className={styles.creatorInfo_nav} to={`/profile/id:=${actualPost.creatorID}`} >
                         <Avatar avatarIMG={actualUserPage.avatar} fullName={actualUserPage.fullName} size="small" />
-                        <h1 className={styles.autorName}>{actualPost?.creator}</h1>
+                        <span className={styles.autorName}>{actualPost?.creator}</span>
                     </NavLink>
                 </div>
                 <div className={styles.postInfo}>

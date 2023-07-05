@@ -9,6 +9,10 @@
     grid-column-end: -1;
     grid-gap: 2px;
     max-width: 900px;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 .news::-webkit-scrollbar {
     display: none;

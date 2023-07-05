@@ -59,10 +59,8 @@ a{
 .avatarSmall img{
     object-fit:fill;
     border-radius: 360px;
-    max-width: 70px;
-    max-height: 70px;
-    width: 100%;
-    height: auto;
+    width: 70px;
+    height: 70px;
 
     grid-area: Avatar;
     display: inline;

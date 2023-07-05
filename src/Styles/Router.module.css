@@ -1,11 +1,16 @@
-.router{
+.router {
     max-width: 900px;
     width: 100%;
     height: calc(93% - 1rem);
     padding: 0px;
-    position:fixed;
+    position: fixed;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
+
 .router::-webkit-scrollbar {
     display: none;
-  }
+}
